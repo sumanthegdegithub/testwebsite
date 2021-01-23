@@ -14,7 +14,7 @@
 <script type="text/javascript">
 
 var loadFile = function(event) {
-  var image = document.getElementById('output');
+  var image = document.getElementById('myImage');
   image.src = URL.createObjectURL(event.target.files[0]);
 };
 
@@ -46,12 +46,11 @@ function myFunction() {
 
 </head>
 <body>
-<img id="myImage" src="image2.jpg">
+<input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
+<p><img id="myImage" width="200" /></p>
 
-<button onclick="myFunction()">Submit</button>
+<button onclick="myFunction()">Predict</button>
 <p id="demo"></p>
 
-<input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
-<p><img id="output" width="200" /></p>
 </body>
 </html>
