@@ -23,7 +23,7 @@
 function myFunction() {
   console.log('hi')
   let image = $('#myImage').get(0);
-  let tensor = tf.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
+  let tensor = tf.browser.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
 
 
   let predictions = model.predict(tensor).data();
