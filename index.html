@@ -14,20 +14,21 @@
 <script type="text/javascript">
 
 
+function myFunction() {
+  console.log('hi')
 
-$("#predict-button").click(function(){
-  console.log('hh')
-  alert("The paragraph was clicked.");
-});
+}
+
+ 
 
 	
 </script>
 
 </head>
 <body>
-<input type="file" id="selected-image" name="selected-image" accept="image/*">
+<input type="file" id="myImage" name="myImage" accept="image/*">
 
-<button id="predict-button">Submit</button>
+<button onclick="myFunction()">Submit</button>
 <p id="demo"></p>
 
 
