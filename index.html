@@ -35,7 +35,13 @@ function myFunction() {
   (async function(){
   let predictions = await model.predict(tensor).data();
 
-  document.getElementById("demo").innerHTML = predictions[0];
+
+if(predictions[0] >0.5){
+  document.getElementById("demo").innerHTML = 'metastasis not detected';
+}
+else{
+  document.getElementById("demo").innerHTML = 'metastasis detected'
+}
 })();
   
 
