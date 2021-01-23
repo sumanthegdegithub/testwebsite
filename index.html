@@ -13,22 +13,34 @@
 
 <script type="text/javascript">
 
+  let model;
+(async function(){
+  model = await tf.loadLayersModel('model/model.json');
+})();
 
-$('#predict-button').click(async function(){
 
 
-  console.log('predictions');
+function myFunction() {
+  console.log('hi')
+  let image = $('#myImage').get(0);
+  let tensor = tf.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
 
-})
 
-	
+  let predictions = await model.predict(tensor).data();
+
+
+  console.log(predictions);
+
+}
+
+
 </script>
 
 </head>
 <body>
 <input type="file" id="myImage" name="myImage" accept="image/*">
 
-<button id="predict-button">Submit</button>
+<button onclick="myFunction()">Submit</button>
 <p id="demo"></p>
 
 
