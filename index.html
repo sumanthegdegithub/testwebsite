@@ -30,7 +30,7 @@ function myFunction() {
   let predictions = await model.predict(tensor).data();
   console.log(predictions);
 
-  $('#demo').innerHTML(predictions[0])
+  document.getElementById("demo").innerHTML = predictions[0];
 })();
   
 
