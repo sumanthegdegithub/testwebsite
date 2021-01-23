@@ -5,11 +5,28 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
 
+<script
+  src="predict.js"></script>
+
+
+<!--
 <script type="text/javascript">
 	tf.loadLayersModel('model/model.json').then(function(model) {
  window.model = model;
 });
+
+$('#predict-button').click(async function(){
+  let image = $('#myImage').get(0);
+  let tensor = tf.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
+
+
+
+})
 
 
 
@@ -28,16 +45,16 @@ function myFunction() {
 
 }
 
- 
 
 	
 </script>
+ -->
 
 </head>
 <body>
 <input type="file" id="myImage" name="myImage" accept="image/*">
 
-<button onclick="myFunction()">Submit</button>
+<button id="predict-button">Submit</button>
 <p id="demo"></p>
 
 
