@@ -7,7 +7,7 @@ $('#image_selector').change(function(){
 	let file = $('#image-selector').prop('files')[0];
 	reader.readAsDataURL(file);
 });
-
+console.log('clicked');
 let model;
 (async function(){
 	model = await tf.loadLayersModel('model/model.json');
@@ -15,7 +15,7 @@ let model;
 
 
 $('#predict-button').click(async function(){
-console.log('clicked');
+
   let image = $('#selected-image').get(0);
   let tensor = tf.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
 

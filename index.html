@@ -10,26 +10,13 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script
-  src="predict.js"></script>
 
-
-<!--
 <script type="text/javascript">
 	tf.loadLayersModel('model/model.json').then(function(model) {
  window.model = model;
 });
 
-$('#predict-button').click(async function(){
-  let image = $('#myImage').get(0);
-  let tensor = tf.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
-
-
-
-})
-
-
-
+<!--
 function myFunction() {
   var input = document.getElementById("myImage");
   console.log(tf.browser.fromPixels(input));
@@ -43,12 +30,17 @@ function myFunction() {
   document.getElementById("demo").innerHTML = scores;
 });
 
-}
+} 
+
+-->
+$('#predict-button').click(async function(){
 
 
+  console.log('predictions');
+
+})
 	
 </script>
- -->
 
 </head>
 <body>
