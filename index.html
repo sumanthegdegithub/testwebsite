@@ -14,20 +14,10 @@
 
 
 function myFunction() {
-  var input = document.getElementById("img");
-  var input = tf.browser.fromPixels(input)
-  console.log(input)
-  console.log(window.model.execute(input))
-  var input = tf.tensor(input).reshape([1, 96, 96, 1]);
-  const b = tf.scalar(255);
-  var input = tf.div(input, b)
-
-
- window.model.predict([input]).array().then(function(scores){
-  scores = scores[0];
-  document.getElementById("demo").innerHTML = scores;
-});
-
+  const model = await tf.loadLayersModel('model/model.json');
+  var Element = document.getElementById('img');
+  const example = tf.fromPixels(Element);  // for example
+  const prediction = model.predict(example);
 }
 
  
