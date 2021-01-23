@@ -15,7 +15,7 @@ let model;
 
 
 $('#predict-button').click(async function(){
-	console.log('clicked')
+console.log('clicked');
   let image = $('#selected-image').get(0);
   let tensor = tf.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
 
@@ -23,6 +23,6 @@ $('#predict-button').click(async function(){
   let predictions = await model.predict(tensor).data();
 
 
-  console.log(predictions)
+  console.log(predictions);
 
 })
