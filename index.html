@@ -13,6 +13,12 @@
 
 <script type="text/javascript">
 
+var loadFile = function(event) {
+  var image = document.getElementById('output');
+  image.src = URL.createObjectURL(event.target.files[0]);
+};
+
+
 
   let model;
 (async function(){
@@ -45,6 +51,7 @@ function myFunction() {
 <button onclick="myFunction()">Submit</button>
 <p id="demo"></p>
 
-
+<input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+<p><img id="output" width="200" /></p>
 </body>
 </html>
