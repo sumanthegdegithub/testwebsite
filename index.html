@@ -14,7 +14,7 @@
 
 
 function myFunction() {
-  var input = document.getElementById("myImage");
+  var input = document.getElementById("img");
   var input = tf.browser.fromPixels(input)
   console.log(input)
   var input = tf.tensor(input).reshape([1, 96, 96, 1]);
@@ -36,7 +36,7 @@ function myFunction() {
 
 </head>
 <body>
-<input type="file" id="myImage" name="myImage" accept="image/*">
+<img src="image.jpg" id="img">
 
 <button onclick="myFunction()">Submit</button>
 <p id="demo"></p>
