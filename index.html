@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+
+<script type="text/javascript">
+	tf.loadLayersModel('model/model.json').then(function(model) {
+ window.model = model;
+});
+
+
+
+function myFunction() {
+  var input = document.getElementById("myImage");
+  const b = tf.scalar(255);
+  var input = tf.div(input, b)
+
+ window.model.predict([tf.tensor(input).reshape([1, 96, 96, 1])]).array().then(function(scores){
+  scores = scores[0];
+  document.getElementById("demo").innerHTML = scores;
+});
+
+}
+
+ 
+
+	
+</script>
+
+</head>
+<body>
+<input type="file" id="myImage" name="myImage" accept="image/*">
+
+<button onclick="myFunction()">Submit</button>
+<p id="demo"></p>
+
+
+
+</body>
+</html>
