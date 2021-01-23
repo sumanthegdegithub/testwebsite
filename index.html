@@ -14,10 +14,19 @@
 
 
 function myFunction() {
-  const model = await tf.loadLayersModel('model/model.json');
-  var Element = document.getElementById('img');
-  const example = tf.fromPixels(Element);  // for example
-  const prediction = model.predict(example);
+  var input = document.getElementById("myImage");
+  var input = tf.browser.fromPixels(input)
+  console.log(input)
+  var input = tf.tensor(input).reshape([1, 96, 96, 1]);
+  const b = tf.scalar(255);
+  var input = tf.div(input, b)
+
+
+ window.model.predict([input]).array().then(function(scores){
+  scores = scores[0];
+  document.getElementById("demo").innerHTML = scores;
+});
+
 }
 
  
@@ -27,7 +36,7 @@ function myFunction() {
 
 </head>
 <body>
-<img src="image.jpg" id="img">
+<input type="file" id="myImage" name="myImage" accept="image/*">
 
 <button onclick="myFunction()">Submit</button>
 <p id="demo"></p>
