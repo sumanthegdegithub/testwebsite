@@ -26,7 +26,7 @@ function myFunction() {
   let tensor = tf.fromPixels(image).reshape([1, 96, 96, 1]).toFloat();
 
 
-  let predictions = await model.predict(tensor).data();
+  let predictions = model.predict(tensor).data();
 
 
   console.log(predictions);
