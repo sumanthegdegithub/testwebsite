@@ -13,11 +13,13 @@
 
 <script type="text/javascript">
 
-function myFunction() {
-  console.log('hi')
-}
 
- 
+$('#predict-button').click(async function(){
+
+
+  console.log('predictions');
+
+})
 
 	
 </script>
@@ -26,7 +28,7 @@ function myFunction() {
 <body>
 <input type="file" id="myImage" name="myImage" accept="image/*">
 
-<button onclick="myFunction()">Submit</button>
+<button id="predict-button">Submit</button>
 <p id="demo"></p>
 
 
