@@ -20,18 +20,16 @@
 
 
 
-function myFunction() {
+(async function myFunction() {
   console.log('hi')
   let image = $('#myImage').get(0);
   let tensor = tf.browser.fromPixels(image).reshape([1, 96, 96, 3]).toFloat();
-
-
-  let predictions = model.predict(tensor).data();
+  let predictions = await model.predict(tensor).data();
 
 
   console.log(predictions);
 
-}
+})
 
 
 </script>
