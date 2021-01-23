@@ -12,25 +12,9 @@
 
 
 <script type="text/javascript">
-	tf.loadLayersModel('model/model.json').then(function(model) {
- window.model = model;
-});
-
-
 
 function myFunction() {
-  var input = document.getElementById("myImage");
-  console.log(tf.browser.fromPixels(input));
-  var input = tf.tensor(input).reshape([1, 96, 96, 1]);
-  const b = tf.scalar(255);
-  var input = tf.div(input, b)
-
-
- window.model.predict([input]).array().then(function(scores){
-  scores = scores[0];
-  document.getElementById("demo").innerHTML = scores;
-});
-
+  console.log('hi')
 }
 
  
