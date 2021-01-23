@@ -14,11 +14,13 @@
 
 
 function myFunction() {
-  var input = document.getElementById("myImage").value();
-  
+  var input = document.getElementById("myImage");
+  var input = tf.browser.fromPixels(input)
+  console.log(input)
   var input = tf.tensor(input).reshape([1, 96, 96, 1]);
   const b = tf.scalar(255);
   var input = tf.div(input, b)
+
 
  window.model.predict([input]).array().then(function(scores){
   scores = scores[0];
