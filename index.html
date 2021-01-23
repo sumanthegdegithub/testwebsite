@@ -15,7 +15,7 @@
 
 function myFunction() {
   var input = document.getElementById("myImage");
-  console.log(input)
+  console.log(input);
   var input = tf.tensor(input).reshape([1, 96, 96, 1]);
   const b = tf.scalar(255);
   var input = tf.div(input, b)
