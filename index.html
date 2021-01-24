@@ -25,6 +25,11 @@ var loadFile = function(event) {
   model = await tf.loadLayersModel('model/model.json');
 })();
 
+  let DenseNet121;
+(async function(){
+  DenseNet121 = await tf.loadLayersModel('DenseNet121/model.json');
+})();
+
 
 
 function myFunction() {
@@ -33,12 +38,14 @@ function myFunction() {
 
 
   (async function(){
-  let predictions = await model.predict(tensor).data();
-console.log(predictions)
+  let predictions1 = await model.predict(tensor).data();
+console.log(predictions1)
+let predictions2 = await DenseNet121.predict(tensor).data();
+console.log(predictions2)
 
 console.log(predictions[0])
-if(predictions[0] >0.5){
-  document.getElementById("demo").innerHTML = 'metastasis detected';
+if((predictions1[0] + predictions2[0])/2 >0.5){
+  document.getElementById("demo").innerHTML = 'metastasis detected ' + predictions1[0];
 }
 else{
   document.getElementById("demo").innerHTML = 'metastasis not detected'
