@@ -37,10 +37,10 @@ console.log(predictions)
 
 console.log(predictions[0])
 if(predictions[0] >0.5){
-  document.getElementById("demo").innerHTML = 'metastasis detected ' +  predictions[0]*100 + '%';
+  document.getElementById("demo").innerHTML = 'metastasis detected with probability' +  predictions[0]*100 + '%';
 }
 else{
-  document.getElementById("demo").innerHTML = 'metastasis not detected'
+  document.getElementById("demo").innerHTML = 'metastasis not detected with probability ' +  1 - predictions[0]*100 + '%'
 }
 })();
   
@@ -58,8 +58,7 @@ else{
 
 <h5>Choose Model</h5>
 
-<button onclick="myFunction()">Xception</button>
-<button onclick="DenseFunction()">DenseNet</button>
+<button onclick="myFunction()">Predict</button>
 <p id="demo"></p>
 
 </body>
