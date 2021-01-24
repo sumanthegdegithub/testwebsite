@@ -26,7 +26,6 @@ var loadFile = function(event) {
 })();
 
 
-
 function myFunction() {
   let image = $('#myImage').get(0);
   let tensor = tf.browser.fromPixels(image).toFloat().div(tf.scalar(255.0)).expandDims();
@@ -38,7 +37,7 @@ console.log(predictions)
 
 console.log(predictions[0])
 if(predictions[0] >0.5){
-  document.getElementById("demo").innerHTML = 'metastasis detected';
+  document.getElementById("demo").innerHTML = 'metastasis detected ' +  predictions[0]*100 + '%';
 }
 else{
   document.getElementById("demo").innerHTML = 'metastasis not detected'
@@ -49,6 +48,7 @@ else{
 }
 
 
+
 </script>
 
 </head>
@@ -56,7 +56,10 @@ else{
 <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
 <img id="myImage" src="image1.jpg" />
 
-<button onclick="myFunction()">Predict</button>
+<h5>Choose Model</h5>
+
+<button onclick="myFunction()">Xception</button>
+<button onclick="DenseFunction()">DenseNet</button>
 <p id="demo"></p>
 
 </body>
