@@ -29,7 +29,7 @@ var loadFile = function(event) {
 
 function myFunction() {
   let image = $('#myImage').get(0);
-  let tensor = tf.browser.fromPixels(image).reshape([1, 96, 96, 3]).toFloat();
+  let tensor = tf.browser.fromPixels(image).toFloat().div(tf.scalar(255.0)).expandDims();
 
 
   (async function(){
