@@ -27,6 +27,7 @@ var loadFile = function(event) {
 
 
 function myFunction() {
+  document.getElementById("demo").innerHTML = 'image uploaded...   please wait....'
   let image = $('#myImage').get(0);
   let tensor = tf.browser.fromPixels(image).toFloat().div(tf.scalar(255.0)).expandDims();
 
@@ -54,10 +55,10 @@ else{
 </head>
 <body>
 
-<img id="myImage" src="image1.jpg"/>
+<center><img id="myImage" src="image1.jpg"/>
 <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
 <button onclick="myFunction()">Predict</button>
 <p id="demo"></p>
-
+</center>
 </body>
 </html>
